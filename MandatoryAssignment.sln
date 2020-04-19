@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFramework", "GameFramework\GameFramework.csproj", "{A0511A2A-C26A-49E4-A7F1-8160D7B62F17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameRunner", "GameRunner\GameRunner.csproj", "{01575BAA-6B4D-4D27-ABEF-A45119DC647C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0511A2A-C26A-49E4-A7F1-8160D7B62F17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0511A2A-C26A-49E4-A7F1-8160D7B62F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0511A2A-C26A-49E4-A7F1-8160D7B62F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0511A2A-C26A-49E4-A7F1-8160D7B62F17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01575BAA-6B4D-4D27-ABEF-A45119DC647C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01575BAA-6B4D-4D27-ABEF-A45119DC647C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01575BAA-6B4D-4D27-ABEF-A45119DC647C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01575BAA-6B4D-4D27-ABEF-A45119DC647C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B4253AF-D146-4A21-9399-8C61870FF356}
+	EndGlobalSection
+EndGlobal
