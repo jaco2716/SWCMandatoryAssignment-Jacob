@@ -76,6 +76,10 @@ namespace GameFramework
                 {
                     playground.cord[item.XPosition, item.YPosition] = item.Color;
                     item.Act();
+                    if (playground.cord[item.XPosition, item.YPosition] == Color.Yellow)
+                    {
+                        item.Item = item.OpenChest();
+                    }
                 }
 
                 foreach (var item in obstacles)

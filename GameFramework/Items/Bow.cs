@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text;
-
-namespace GameFramework.Items
+﻿namespace GameFramework.Items
 {
-    class Bow : Weapon
+    internal class Bow : Weapons
     {
-        public Bow(ItemType type, Color color) : base(type, color, 15, 2)
+        public Bow() : base(ItemType.bow, 15, 2)
         {
-
         }
     }
 }

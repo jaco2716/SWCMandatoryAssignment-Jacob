@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text;
-
-namespace GameFramework.Items
+﻿namespace GameFramework.Items
 {
-    class Shield : Item
+    internal class Shield : Item
     {
-     
-
-        public int DefenceValue { get; set; }
-
-
-        public Shield(ItemType type, Color color) : base(type, color, 30)
+        public Shield() : base(ItemType.shield, 30)
         {
             DefenceValue = Value;
         }
+
+
+        public int DefenceValue { get; set; }
     }
 }

@@ -7,6 +7,7 @@ namespace GameFramework.Obstacles
     public enum ObstacleType
     {
         wall,
-        thornBush
+        thornBush,
+        chest
     }
 }

@@ -4,11 +4,11 @@ using System.Text;
 
 namespace GameFramework.Items
 {
-    class Weapon : Item
+    class Weapons : Item
     {
         public int Range { get; set; }
 
-        public Weapon(ItemType type, int value, int range) : base(type, value)
+        public Weapons(ItemType type, int value, int range) : base(type, value)
         {
             Range = range;
         }

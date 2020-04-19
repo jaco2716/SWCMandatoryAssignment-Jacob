@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GameFramework.Items
+﻿namespace GameFramework.Items
 {
     public enum ItemType
     {

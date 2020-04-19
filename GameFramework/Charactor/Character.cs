@@ -8,6 +8,8 @@ namespace GameFramework.Charactor
 {
     public abstract class Character
     {
+        Random random = new Random();
+
         protected Character(int xPosition, int health, CharacterKind kind, Color color, int yPosition, int damage, Item item)
         {
             XPosition = xPosition;
@@ -51,9 +53,23 @@ namespace GameFramework.Charactor
             Move();
         }
 
+        public Item OpenChest()
+        {
+            int itemIndex = random.Next(0, 3);
+
+            switch (itemIndex)
+            {
+                case 0:
+                    return new Bow();
+                case 1:
+                    return new Sword();
+                default:
+                    return new Shield();
+            }
+        }
+
         public void Move()
         {
-            Random random = new Random();
             int direction = random.Next(0, 5);
 
             switch (direction)

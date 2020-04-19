@@ -15,7 +15,7 @@ namespace GameFramework.Obstacles
 
         public void Attack()
         {
-
+       
         }
     }
 }
