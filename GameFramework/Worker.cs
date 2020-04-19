@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using GameFramework.Charactor;
+using GameFramework.Factories;
 using GameFramework.Obstacles;
 
 
@@ -10,29 +11,36 @@ namespace GameFramework
 {
     public class Worker
     {
+        private bool gameRunning = true;
+
         private List<Character> characters;
         private List<Obstacle> obstacles;
+        private EnemyFactory EF = new EnemyFactory();
         public void Start()
         {
-            characters = new List<Character>
+            characters = new List<Character>();
+            for (int i = 0; i < 100; i++)
             {
-                new Knight(2,2),
-                new Wizard(5, 2),
-                new Skeleton(10, 3),
-                new Knight(2,5),
-                new Wizard(10, 5),
-                new Skeleton(15, 5),
-                new Knight(15,10),
-                new Wizard(20, 10),
-                new Skeleton(22, 10),
-                new Knight(4,15),
-                new Wizard(10, 15),
-                new Skeleton(18, 15)
-            };
-            if (characters[1].Kind == CharacterKind.knight)
-            {
-                
+                characters.Add(EF.CreateObject());
             }
+
+
+            // characters = new List<Character>
+            // {
+            //     new Knight(2,2),
+            //     new Wizard(5, 2),
+            //     new Skeleton(10, 3),
+            //     new Knight(2,5),
+            //     new Wizard(10, 5),
+            //     new Skeleton(15, 5),
+            //     new Knight(15,10),
+            //     new Wizard(20, 10),
+            //     new Skeleton(22, 10),
+            //     new Knight(4,15),
+            //     new Wizard(10, 15),
+            //     new Skeleton(18, 15)
+            // };
+           
             obstacles = new List<Obstacle>
             {
                 new Wall(11, 24),
@@ -56,33 +64,43 @@ namespace GameFramework
         }
         public void RunGame()
         {
-            
-            Playground playground = new Playground();
-            playground.MakePlayground();
 
-            foreach (var item in characters)
+            while (gameRunning)
             {
-                playground.cord[item.XPosition, item.YPosition] = item.Color;
-            }
-            foreach (var item in obstacles)
-            {
-                playground.cord[item.XPosition, item.YPosition] = item.Color;
-            }
+                Console.Clear();
 
-            for (int i = 0; i < playground.YSize; i++)
-            {
-                for (int j = 0; j < playground.XSize; j++)
+                Playground playground = new Playground();
+                playground.MakePlayground();
+
+                foreach (var item in characters)
                 {
-                    Console.BackgroundColor = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), playground.cord[j, i].Name);
-                    Console.Write("   ");
+                    playground.cord[item.XPosition, item.YPosition] = item.Color;
+                    item.Act();
                 }
-                Console.WriteLine();
+
+                foreach (var item in obstacles)
+                {
+                    playground.cord[item.XPosition, item.YPosition] = item.Color;
+                }
+
+                for (int i = 0; i < playground.YSize; i++)
+                {
+                    for (int j = 0; j < playground.XSize; j++)
+                    {
+                        Console.BackgroundColor =
+                            (ConsoleColor) Enum.Parse(typeof(ConsoleColor), playground.cord[j, i].Name);
+                        Console.Write("   ");
+                    }
+
+                    Console.WriteLine();
+                }
+
+
+                Console.BackgroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("hej ");
+                Console.ReadKey();
+
             }
-
-            Console.BackgroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("hej ");
-
-
 
         }
     }

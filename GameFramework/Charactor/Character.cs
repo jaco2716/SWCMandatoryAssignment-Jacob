@@ -48,7 +48,43 @@ namespace GameFramework.Charactor
 
         public virtual void Act()
         {
+            Move();
+        }
 
+        public void Move()
+        {
+            Random random = new Random();
+            int direction = random.Next(0, 5);
+
+            switch (direction)
+            {
+                case 0:
+                    if (XPosition > 0)
+                    {
+                        XPosition -= 1;
+                    }
+                    break;
+                case 1:
+                    if (XPosition < 24)
+                    {
+                        XPosition += 1;
+                    }
+                    break;
+                case 2:
+                    if (YPosition > 0)
+                    {
+                        YPosition -= 1;
+                    }
+                    break;
+                case 3:
+                    if (YPosition < 24)
+                    {
+                        YPosition += 1;
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
 
 
