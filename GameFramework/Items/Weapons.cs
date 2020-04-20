@@ -12,5 +12,10 @@ namespace GameFramework.Items
         {
             Range = range;
         }
+
+        public virtual int GetDamage()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

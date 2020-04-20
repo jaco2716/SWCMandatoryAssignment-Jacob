@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Text;
 using GameFramework.Charactor;
 using GameFramework.Factories;
+using GameFramework.Items;
 using GameFramework.Obstacles;
 
 
@@ -16,6 +17,8 @@ namespace GameFramework
         private List<Character> characters;
         private List<Obstacle> obstacles;
         private EnemyFactory EF = new EnemyFactory();
+        private ObstacleFactory OF = new ObstacleFactory();
+        
         public void Start()
         {
             characters = new List<Character>();
@@ -41,24 +44,12 @@ namespace GameFramework
             //     new Skeleton(18, 15)
             // };
            
-            obstacles = new List<Obstacle>
-            {
-                new Wall(11, 24),
-                new Wall(11, 23),
-                new Wall(11, 22),
-                new Wall(11, 21),
-                new Wall(15, 24),
-                new Wall(15, 23),
-                new Wall(15, 22),
-                new Wall(15, 21),
-                new ThornBush(5, 2),
-                new ThornBush(24, 2),
-                new ThornBush(20, 7),
-                new ThornBush(19, 20),
-                new ThornBush(15, 12),
-                new ThornBush(6, 20)
+            obstacles = new List<Obstacle>();
 
-            };
+            for (int i = 0; i < 25; i++)
+            {
+                obstacles.Add(OF.CreateObject());
+            }
             
             RunGame();
         }
@@ -72,20 +63,33 @@ namespace GameFramework
                 Playground playground = new Playground();
                 playground.MakePlayground();
 
-                foreach (var item in characters)
-                {
-                    playground.cord[item.XPosition, item.YPosition] = item.Color;
-                    item.Act();
-                    if (playground.cord[item.XPosition, item.YPosition] == Color.Yellow)
-                    {
-                        item.Item = item.OpenChest();
-                    }
-                }
+
 
                 foreach (var item in obstacles)
                 {
                     playground.cord[item.XPosition, item.YPosition] = item.Color;
                 }
+                List<Character> deadCharacters = new List<Character>();
+                foreach (var item in characters)
+                {
+                    if (!item.IsDead)
+                    {
+                        playground.cord[item.XPosition, item.YPosition] = item.Color;
+                        item.Act(playground.cord);
+                        if (playground.cord[item.XPosition, item.YPosition] == Color.Yellow)
+                        {
+                            Chest chest = new Chest();
+                            item.Item = chest.OpenChest(item);
+                        }
+                    }
+
+                    if (item.IsDead)
+                    {
+                        deadCharacters.Add(item);
+                    }
+                }
+
+                deadCharacters.ForEach(item => characters.Remove(item));
 
                 for (int i = 0; i < playground.YSize; i++)
                 {
@@ -101,7 +105,6 @@ namespace GameFramework
 
 
                 Console.BackgroundColor = ConsoleColor.DarkCyan;
-                Console.WriteLine("hej ");
                 Console.ReadKey();
 
             }

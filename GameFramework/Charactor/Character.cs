@@ -48,57 +48,42 @@ namespace GameFramework.Charactor
 
 
 
-        public virtual void Act()
+        public virtual void Act(Color[,] playground)
         {
-            Move();
+            Move(playground);
         }
 
-        public Item OpenChest()
-        {
-            int itemIndex = random.Next(0, 3);
+        
 
-            switch (itemIndex)
-            {
-                case 0:
-                    return new Bow();
-                case 1:
-                    return new Sword();
-                default:
-                    return new Shield();
-            }
-        }
-
-        public void Move()
+        public virtual void Move(Color[,] playground)
         {
-            int direction = random.Next(0, 5);
+            int direction = random.Next(5);
 
             switch (direction)
             {
                 case 0:
-                    if (XPosition > 0)
+                    if (XPosition > 0 && playground[XPosition -1,YPosition] != Color.Black)
                     {
                         XPosition -= 1;
                     }
                     break;
                 case 1:
-                    if (XPosition < 24)
+                    if (XPosition < 24 && playground[XPosition + 1, YPosition] != Color.Black)
                     {
                         XPosition += 1;
                     }
                     break;
                 case 2:
-                    if (YPosition > 0)
+                    if (YPosition > 0 && playground[XPosition, YPosition - 1 ] != Color.Black)
                     {
                         YPosition -= 1;
                     }
                     break;
                 case 3:
-                    if (YPosition < 24)
+                    if (YPosition < 24 && playground[XPosition, YPosition + 1] != Color.Black)
                     {
                         YPosition += 1;
                     }
-                    break;
-                default:
                     break;
             }
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using GameFramework.Charactor;
 
 namespace GameFramework.Obstacles
 {
@@ -9,13 +10,13 @@ namespace GameFramework.Obstacles
     {
         public ThornBush(int xPosition, int yPosition) : base(Color.DarkGreen, xPosition, yPosition)
         {
-            Damage = 7;
+            Damage = 10;
         }
         public int Damage { get; set; }
 
-        public void Attack()
+        public void Attack(Character character)
         {
-       
+            character.Health -= Damage;
         }
     }
 }

@@ -14,6 +14,11 @@ namespace GameFramework.Obstacles
             YPosition = yPosition;
         }
 
+        public Obstacle()
+        {
+            
+        }
+
         public Color Color { get; set; }
         public ObstacleType Type { get; set; }
         public int XPosition { get; set; }

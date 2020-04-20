@@ -8,7 +8,7 @@ namespace GameFramework.Charactor
 {
     class Skeleton : Character
     {
-        public Skeleton(int xPosition, int yPosition, Weapon weapon) : base(xPosition, 30, CharacterKind.skeleton, Color.Gray, yPosition, 15, weapon)
+        public Skeleton(int xPosition, int yPosition, Weapons weapon) : base(xPosition, 30, CharacterKind.skeleton, Color.Gray, yPosition, 15, weapon)
         {
             
         }

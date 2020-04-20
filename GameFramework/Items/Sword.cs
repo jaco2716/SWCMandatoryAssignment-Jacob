@@ -2,7 +2,7 @@
 {
     internal class Sword : Weapons
     {
-        public Sword() : base(ItemType.sword, 30, 1)
+        public Sword(int value = 30) : base(ItemType.sword, value, 1)
         {
         }
     }

@@ -8,7 +8,7 @@ namespace GameFramework.Charactor
 {
     class Wizard : Character
     {
-        public Wizard(int xPosition, int yPosition, Weapon weapon) : base(xPosition, 40, CharacterKind.wizard,
+        public Wizard(int xPosition, int yPosition, Weapons weapon) : base(xPosition, 40, CharacterKind.wizard,
             Color.Blue, yPosition, 12, weapon)
         {
 

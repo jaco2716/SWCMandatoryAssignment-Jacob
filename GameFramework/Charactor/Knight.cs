@@ -8,7 +8,7 @@ namespace GameFramework.Charactor
 {
     class Knight : Character
     {
-        public Knight(int xPosition, int yPosition, Weapon weapon) : base(xPosition, 50, CharacterKind.knight, Color.Cyan, yPosition, 18, weapon)
+        public Knight(int xPosition, int yPosition, Weapons weapon) : base(xPosition, 50, CharacterKind.knight, Color.Cyan, yPosition, 18, weapon)
         {
 
         }
